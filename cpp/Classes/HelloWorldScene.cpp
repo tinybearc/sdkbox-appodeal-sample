@@ -21,6 +21,11 @@ public:
     virtual void onVideoDidPresent();
     virtual void onVideoWillDismiss();
     virtual void onVideoDidFinish();
+
+    virtual void onRewardVideoDidLoadAd();
+    virtual void onRewardVideoDidFailToLoadAd();
+    virtual void onRewardVideoDidPresent();
+    virtual void onRewardVideoWillDismiss();
     virtual void onRewardVideoDidFinish(int amount, const std::string& name);
 };
 
@@ -67,6 +72,19 @@ void ADListener::onVideoWillDismiss() {
 }
 void ADListener::onVideoDidFinish() {
     CCLOG("Listener onVideoDidFinish");
+}
+
+void ADListener::onRewardVideoDidLoadAd() {
+    CCLOG("Listener onRewardVideoDidLoadAd");
+}
+void ADListener::onRewardVideoDidFailToLoadAd() {
+    CCLOG("Listener onRewardVideoDidFailToLoadAd");
+}
+void ADListener::onRewardVideoDidPresent() {
+    CCLOG("Listener onRewardVideoDidPresent");
+}
+void ADListener::onRewardVideoWillDismiss() {
+    CCLOG("Listener onRewardVideoWillDismiss");
 }
 void ADListener::onRewardVideoDidFinish(int amount, const std::string& name) {
     CCLOG("Listener onRewardVideoDidFinish %d : %s", amount, name.c_str());
