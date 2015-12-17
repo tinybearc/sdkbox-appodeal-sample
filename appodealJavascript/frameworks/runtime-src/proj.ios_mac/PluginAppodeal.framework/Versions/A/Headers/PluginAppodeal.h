@@ -72,6 +72,23 @@ namespace sdkbox {
          * trigger when video finish
          */
         virtual void onVideoDidFinish() = 0;
+
+        /**
+         * trigger when reward video load
+         */
+        virtual void onRewardVideoDidLoadAd() = 0;
+        /**
+         * trigger when reward video fail to load
+         */
+        virtual void onRewardVideoDidFailToLoadAd() = 0;
+        /**
+         * trigger when reward video present
+         */
+        virtual void onRewardVideoDidPresent() = 0;
+        /**
+         * trigger when reward video dismiss
+         */
+        virtual void onRewardVideoWillDismiss() = 0;
         /**
          * trigger when reward video finish
          */
@@ -83,21 +100,26 @@ namespace sdkbox {
 
         typedef enum {
             AppodealAdTypeInterstitial = 1 << 0,
-            AppodealAdTypeVideo        = 1 << 1,
+            AppodealAdTypeSkippableVideo = 1 << 1,
+            AppodealAdTypeVideo        = 1 << 1,    //deprecated use AppodealAdTypeSkippableVideo
             AppodealAdTypeBanner       = 1 << 2,
             AppodealAdTypeNativeAd     = 1 << 3,
             AppodealAdTypeRewardVideo  = 1 << 4,
-            AppodealAdTypeAll          = AppodealAdTypeInterstitial | AppodealAdTypeVideo | AppodealAdTypeBanner | AppodealAdTypeNativeAd | AppodealAdTypeRewardVideo
+            AppodealAdTypeNonSkippableVideo = AppodealAdTypeRewardVideo,
+            AppodealAdTypeAll          = AppodealAdTypeInterstitial | AppodealAdTypeSkippableVideo | AppodealAdTypeBanner | AppodealAdTypeNativeAd | AppodealAdTypeRewardVideo
         } AdType;
 
         typedef enum {
             AppodealShowStyleInterstitial = 1,
-            AppodealShowStyleVideo,
+            AppodealShowStyleSkippableVideo,
             AppodealShowStyleVideoOrInterstitial,
             AppodealShowStyleBannerTop,
             AppodealShowStyleBannerCenter,
             AppodealShowStyleBannerBottom,
-            AppodealShowStyleRewardedVideo
+            AppodealShowStyleRewardedVideo,
+
+            AppodealShowStyleVideo = AppodealShowStyleSkippableVideo, // deprecated use AppodealShowStyleSkippableVideo
+            AppodealShowStyleNonSkippableVideo = AppodealShowStyleRewardedVideo
         } ShowStyle;
 
         typedef enum {
@@ -153,6 +175,12 @@ namespace sdkbox {
          * Remove the listener, and can't listen to events anymore
          */
         static void removeListener();
+
+        static void disableNetworkForAdType(AdType adType, const std::string& networkName);
+        static void disableLocationPermissionCheck();
+        static void setAutocache(bool autocache, AdType types);
+        static bool isAutocacheEnabled(AdType types);
+        static void confirmUsage(AdType adTypes);
 
         static void setDebugEnabled(bool debugEnabled);
         static bool showAd(ShowStyle style);
