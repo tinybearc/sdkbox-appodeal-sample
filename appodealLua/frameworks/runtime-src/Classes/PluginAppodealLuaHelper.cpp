@@ -170,6 +170,46 @@ public:
         stack->pushLuaValueDict(dict);
         stack->executeFunctionByHandler(mLuaHandler, 1);
     }
+
+    void onRewardVideoDidLoadAd() {
+        LuaStack* stack = LUAENGINE->getLuaStack();
+        LuaValueDict dict;
+
+        dict.insert(std::make_pair("event", LuaValue::stringValue("onRewardVideoDidLoadAd")));
+
+        stack->pushLuaValueDict(dict);
+        stack->executeFunctionByHandler(mLuaHandler, 1);
+    }
+    
+    void onRewardVideoDidFailToLoadAd() {
+        LuaStack* stack = LUAENGINE->getLuaStack();
+        LuaValueDict dict;
+
+        dict.insert(std::make_pair("event", LuaValue::stringValue("onRewardVideoDidFailToLoadAd")));
+
+        stack->pushLuaValueDict(dict);
+        stack->executeFunctionByHandler(mLuaHandler, 1);
+    }
+    
+    void onRewardVideoDidPresent() {
+        LuaStack* stack = LUAENGINE->getLuaStack();
+        LuaValueDict dict;
+
+        dict.insert(std::make_pair("event", LuaValue::stringValue("onRewardVideoDidPresent")));
+
+        stack->pushLuaValueDict(dict);
+        stack->executeFunctionByHandler(mLuaHandler, 1);
+    }
+    
+    void onRewardVideoWillDismiss() {
+        LuaStack* stack = LUAENGINE->getLuaStack();
+        LuaValueDict dict;
+
+        dict.insert(std::make_pair("event", LuaValue::stringValue("onRewardVideoWillDismiss")));
+
+        stack->pushLuaValueDict(dict);
+        stack->executeFunctionByHandler(mLuaHandler, 1);
+    }
     
     void onRewardVideoDidFinish(int amount, const std::string& name) {
         LuaStack* stack = LUAENGINE->getLuaStack();
