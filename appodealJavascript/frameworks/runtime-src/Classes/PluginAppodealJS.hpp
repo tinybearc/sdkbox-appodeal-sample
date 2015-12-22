@@ -19,6 +19,66 @@ void register_all_PluginAppodealJS(JSContext* cx, JSObject* obj);
 bool js_PluginAppodealJS_PluginAppodeal_constructor(JSContext *cx, uint32_t argc, jsval *vp);
 void js_PluginAppodealJS_PluginAppodeal_finalize(JSContext *cx, JSObject *obj);
 #if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginAppodealJS_PluginAppodeal_setUserVkId(JSContext *cx, uint32_t argc, jsval *vp);
 #elif defined(JS_VERSION)
 JSBool js_PluginAppodealJS_PluginAppodeal_setUserVkId(JSContext *cx, uint32_t argc, jsval *vp);
@@ -29,64 +89,9 @@ bool js_PluginAppodealJS_PluginAppodeal_cacheAd(JSContext *cx, uint32_t argc, js
 JSBool js_PluginAppodealJS_PluginAppodeal_cacheAd(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_PluginAppodealJS_PluginAppodeal_setAutocache(JSContext *cx, uint32_t argc, jsval *vp);
 #elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserFacebookId(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserFacebookId(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserRelationship(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserRelationship(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp);
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, jsval *vp);
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_PluginAppodealJS_PluginAppodeal_setAutocache(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginAppodealJS_PluginAppodeal_setDebugEnabled(JSContext *cx, uint32_t argc, jsval *vp);
@@ -99,9 +104,29 @@ bool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc,
 JSBool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t argc, jsval *vp);
 #elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_confirmUsage(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_confirmUsage(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserFacebookId(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserFacebookId(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserRelationship(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserRelationship(JSContext *cx, uint32_t argc, jsval *vp);
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, jsval *vp);
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 #endif
 

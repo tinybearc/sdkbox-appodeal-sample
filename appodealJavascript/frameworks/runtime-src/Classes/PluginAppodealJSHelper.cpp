@@ -127,6 +127,34 @@ public:
         cb->schedule();
         cb->autorelease();
     }
+
+    void onRewardVideoDidLoadAd() {
+        ADCallbackJS* cb = new ADCallbackJS();
+        cb->_name = "onRewardVideoDidLoadAd";
+        cb->schedule();
+        cb->autorelease();
+    }
+    
+    void onRewardVideoDidFailToLoadAd() {
+        ADCallbackJS* cb = new ADCallbackJS();
+        cb->_name = "onRewardVideoDidFailToLoadAd";
+        cb->schedule();
+        cb->autorelease();
+    }
+    
+    void onRewardVideoDidPresent() {
+        ADCallbackJS* cb = new ADCallbackJS();
+        cb->_name = "onRewardVideoDidPresent";
+        cb->schedule();
+        cb->autorelease();
+    }
+    
+    void onRewardVideoWillDismiss() {
+        ADCallbackJS* cb = new ADCallbackJS();
+        cb->_name = "onRewardVideoWillDismiss";
+        cb->schedule();
+        cb->autorelease();
+    }
     
     void onRewardVideoDidFinish(int amount, const std::string& name) {
         JSContext* cx = s_cx;

@@ -106,6 +106,391 @@ JSClass  *jsb_sdkbox_PluginAppodeal_class;
 JSObject *jsb_sdkbox_PluginAppodeal_prototype;
 
 #if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::AdType arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled : Error processing arguments");
+        bool ret = sdkbox::PluginAppodeal::isAutocacheEnabled(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::AdType arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        bool ret = sdkbox::PluginAppodeal::isAutocacheEnabled(arg0);
+        jsval jsret;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        JS_SET_RVAL(cx, vp, jsret);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    if (argc == 0) {
+        sdkbox::PluginAppodeal::hideBanner();
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_hideBanner : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    if (argc == 0) {
+        sdkbox::PluginAppodeal::hideBanner();
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::Gender arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserGender : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserGender(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserGender : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::Gender arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserGender(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 2) {
+        sdkbox::PluginAppodeal::AdType arg0;
+        std::string arg1;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        ok &= jsval_to_std_string(cx, args.get(1), &arg1);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType : Error processing arguments");
+        sdkbox::PluginAppodeal::disableNetworkForAdType(arg0, arg1);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 2) {
+        sdkbox::PluginAppodeal::AdType arg0;
+        std::string arg1;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        ok &= jsval_to_std_string(cx, argv[1], &arg1);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::disableNetworkForAdType(arg0, arg1);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::SmokingAttitude arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserSmokingAttitude(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::SmokingAttitude arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserSmokingAttitude(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserInterests : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserInterests(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserInterests : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, argv[0], &arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserInterests(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserBirthday : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserBirthday(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserBirthday : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, argv[0], &arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserBirthday(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    if (argc == 0) {
+        bool ret = sdkbox::PluginAppodeal::init();
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_init : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    if (argc == 0) {
+        bool ret = sdkbox::PluginAppodeal::init();
+        jsval jsret;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        JS_SET_RVAL(cx, vp, jsret);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    if (argc == 0) {
+        sdkbox::PluginAppodeal::disableLocationPermissionCheck();
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    if (argc == 0) {
+        sdkbox::PluginAppodeal::disableLocationPermissionCheck();
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::AlcoholAttitude arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserAlcoholAttitude(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::AlcoholAttitude arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserAlcoholAttitude(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::Occupation arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserOccupation : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserOccupation(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserOccupation : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::Occupation arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserOccupation(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::ShowStyle arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle : Error processing arguments");
+        bool ret = sdkbox::PluginAppodeal::isReadyForShowWithStyle(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        sdkbox::PluginAppodeal::ShowStyle arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        bool ret = sdkbox::PluginAppodeal::isReadyForShowWithStyle(arg0);
+        jsval jsret;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        JS_SET_RVAL(cx, vp, jsret);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginAppodealJS_PluginAppodeal_setUserVkId(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -172,6 +557,109 @@ JSBool js_PluginAppodealJS_PluginAppodeal_cacheAd(JSContext *cx, uint32_t argc, 
 }
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setAutocache(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 2) {
+        bool arg0;
+        sdkbox::PluginAppodeal::AdType arg1;
+        arg0 = JS::ToBoolean(args.get(0));
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setAutocache : Error processing arguments");
+        sdkbox::PluginAppodeal::setAutocache(arg0, arg1);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setAutocache : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setAutocache(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 2) {
+        bool arg0;
+        sdkbox::PluginAppodeal::AdType arg1;
+        arg0 = JS::ToBoolean(argv[0]);
+        ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setAutocache(arg0, arg1);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setDebugEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        bool arg0;
+        arg0 = JS::ToBoolean(args.get(0));
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setDebugEnabled : Error processing arguments");
+        sdkbox::PluginAppodeal::setDebugEnabled(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setDebugEnabled : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setDebugEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        bool arg0;
+        arg0 = JS::ToBoolean(argv[0]);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setDebugEnabled(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        int arg0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserAge : Error processing arguments");
+        sdkbox::PluginAppodeal::setUserAge(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserAge : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSBool ok = JS_TRUE;
+    if (argc == 1) {
+        int arg0;
+        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+        sdkbox::PluginAppodeal::setUserAge(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -205,219 +693,31 @@ JSBool js_PluginAppodealJS_PluginAppodeal_setUserEmail(JSContext *cx, uint32_t a
 }
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_PluginAppodealJS_PluginAppodeal_confirmUsage(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
     if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserBirthday : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserBirthday(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserBirthday : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserBirthday(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, argv[0], &arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserBirthday(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::Gender arg0;
+        sdkbox::PluginAppodeal::AdType arg0;
         ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserGender : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserGender(arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_confirmUsage : Error processing arguments");
+        sdkbox::PluginAppodeal::confirmUsage(arg0);
         args.rval().setUndefined();
         return true;
     }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserGender : wrong number of arguments");
+    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_confirmUsage : wrong number of arguments");
     return false;
 }
 #elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserGender(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_PluginAppodealJS_PluginAppodeal_confirmUsage(JSContext *cx, uint32_t argc, jsval *vp)
 {
     jsval *argv = JS_ARGV(cx, vp);
     JSBool ok = JS_TRUE;
     if (argc == 1) {
-        sdkbox::PluginAppodeal::Gender arg0;
+        sdkbox::PluginAppodeal::AdType arg0;
         ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
         JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserGender(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::SmokingAttitude arg0;
-        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserSmokingAttitude(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::SmokingAttitude arg0;
-        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserSmokingAttitude(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    if (argc == 0) {
-        sdkbox::PluginAppodeal::hideBanner();
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_hideBanner : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_hideBanner(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    if (argc == 0) {
-        sdkbox::PluginAppodeal::hideBanner();
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::ShowStyle arg0;
-        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle : Error processing arguments");
-        bool ret = sdkbox::PluginAppodeal::isReadyForShowWithStyle(arg0);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::ShowStyle arg0;
-        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        bool ret = sdkbox::PluginAppodeal::isReadyForShowWithStyle(arg0);
-        jsval jsret;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        JS_SET_RVAL(cx, vp, jsret);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    if (argc == 0) {
-        bool ret = sdkbox::PluginAppodeal::init();
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_init : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_init(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    if (argc == 0) {
-        bool ret = sdkbox::PluginAppodeal::init();
-        jsval jsret;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        JS_SET_RVAL(cx, vp, jsret);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserInterests : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserInterests(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserInterests : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserInterests(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, argv[0], &arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserInterests(arg0);
+        sdkbox::PluginAppodeal::confirmUsage(arg0);
         JS_SET_RVAL(cx, vp, JSVAL_VOID);
         return JS_TRUE;
     }
@@ -492,39 +792,6 @@ JSBool js_PluginAppodealJS_PluginAppodeal_setUserRelationship(JSContext *cx, uin
 }
 #endif
 #if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::AlcoholAttitude arg0;
-        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserAlcoholAttitude(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::AlcoholAttitude arg0;
-        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserAlcoholAttitude(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -555,105 +822,6 @@ JSBool js_PluginAppodealJS_PluginAppodeal_showAd(JSContext *cx, uint32_t argc, j
         jsval jsret;
         jsret = BOOLEAN_TO_JSVAL(ret);
         JS_SET_RVAL(cx, vp, jsret);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setDebugEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        bool arg0;
-        arg0 = JS::ToBoolean(args.get(0));
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setDebugEnabled : Error processing arguments");
-        sdkbox::PluginAppodeal::setDebugEnabled(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setDebugEnabled : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setDebugEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        bool arg0;
-        arg0 = JS::ToBoolean(argv[0]);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setDebugEnabled(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        int arg0;
-        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserAge : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserAge(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserAge : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserAge(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        int arg0;
-        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserAge(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::Occupation arg0;
-        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_PluginAppodealJS_PluginAppodeal_setUserOccupation : Error processing arguments");
-        sdkbox::PluginAppodeal::setUserOccupation(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginAppodealJS_PluginAppodeal_setUserOccupation : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginAppodealJS_PluginAppodeal_setUserOccupation(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    jsval *argv = JS_ARGV(cx, vp);
-    JSBool ok = JS_TRUE;
-    if (argc == 1) {
-        sdkbox::PluginAppodeal::Occupation arg0;
-        ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-        JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-        sdkbox::PluginAppodeal::setUserOccupation(arg0);
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
         return JS_TRUE;
     }
     JS_ReportError(cx, "wrong number of arguments");
@@ -703,23 +871,28 @@ void js_register_PluginAppodealJS_PluginAppodeal(JSContext *cx, JS::HandleObject
     };
 
     static JSFunctionSpec st_funcs[] = {
+        JS_FN("isAutocacheEnabled", js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableNetworkForAdType", js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableLocationPermissionCheck", js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserVkId", js_PluginAppodealJS_PluginAppodeal_setUserVkId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("cacheAd", js_PluginAppodealJS_PluginAppodeal_cacheAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setAutocache", js_PluginAppodealJS_PluginAppodeal_setAutocache, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setDebugEnabled", js_PluginAppodealJS_PluginAppodeal_setDebugEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserAge", js_PluginAppodealJS_PluginAppodeal_setUserAge, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("confirmUsage", js_PluginAppodealJS_PluginAppodeal_confirmUsage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
@@ -774,23 +947,28 @@ void js_register_PluginAppodealJS_PluginAppodeal(JSContext *cx, JSObject *global
     };
 
     static JSFunctionSpec st_funcs[] = {
+        JS_FN("isAutocacheEnabled", js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableNetworkForAdType", js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableLocationPermissionCheck", js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserVkId", js_PluginAppodealJS_PluginAppodeal_setUserVkId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("cacheAd", js_PluginAppodealJS_PluginAppodeal_cacheAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setAutocache", js_PluginAppodealJS_PluginAppodeal_setAutocache, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setDebugEnabled", js_PluginAppodealJS_PluginAppodeal_setDebugEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserAge", js_PluginAppodealJS_PluginAppodeal_setUserAge, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("confirmUsage", js_PluginAppodealJS_PluginAppodeal_confirmUsage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
@@ -841,23 +1019,28 @@ void js_register_PluginAppodealJS_PluginAppodeal(JSContext *cx, JSObject *global
     JSFunctionSpec *funcs = NULL;
 
     static JSFunctionSpec st_funcs[] = {
+        JS_FN("isAutocacheEnabled", js_PluginAppodealJS_PluginAppodeal_isAutocacheEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableNetworkForAdType", js_PluginAppodealJS_PluginAppodeal_disableNetworkForAdType, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("disableLocationPermissionCheck", js_PluginAppodealJS_PluginAppodeal_disableLocationPermissionCheck, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserVkId", js_PluginAppodealJS_PluginAppodeal_setUserVkId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("cacheAd", js_PluginAppodealJS_PluginAppodeal_cacheAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserBirthday", js_PluginAppodealJS_PluginAppodeal_setUserBirthday, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserGender", js_PluginAppodealJS_PluginAppodeal_setUserGender, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserSmokingAttitude", js_PluginAppodealJS_PluginAppodeal_setUserSmokingAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("hideBanner", js_PluginAppodealJS_PluginAppodeal_hideBanner, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("isReadyForShowWithStyle", js_PluginAppodealJS_PluginAppodeal_isReadyForShowWithStyle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("init", js_PluginAppodealJS_PluginAppodeal_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserInterests", js_PluginAppodealJS_PluginAppodeal_setUserInterests, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserAlcoholAttitude", js_PluginAppodealJS_PluginAppodeal_setUserAlcoholAttitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setAutocache", js_PluginAppodealJS_PluginAppodeal_setAutocache, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setDebugEnabled", js_PluginAppodealJS_PluginAppodeal_setDebugEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setUserAge", js_PluginAppodealJS_PluginAppodeal_setUserAge, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setUserOccupation", js_PluginAppodealJS_PluginAppodeal_setUserOccupation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserEmail", js_PluginAppodealJS_PluginAppodeal_setUserEmail, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("confirmUsage", js_PluginAppodealJS_PluginAppodeal_confirmUsage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserFacebookId", js_PluginAppodealJS_PluginAppodeal_setUserFacebookId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setUserRelationship", js_PluginAppodealJS_PluginAppodeal_setUserRelationship, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("showAd", js_PluginAppodealJS_PluginAppodeal_showAd, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
